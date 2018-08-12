@@ -10,20 +10,20 @@ def test(request, *args, **kwargs):
 
 def main(request):
     questions = Question.objects.new()
-    limit = request.GET.get('limit', 10)
-    page = request.GET.get('page', 1)
-    paginator = Paginator(questions, limit)
+    page = request.GET.get('page')
+    paginator = Paginator(questions, 10)
     paginator.baseurl = '/?page='
-    page = paginator.page(page)
-    #return HttpResponse('main page')
-    return render(request, 'qa/list.html', {'post_list': questions,
-                                            'paginator': paginator,
-                                            'page': page})
+    questions_p = paginator.get_page(page)
+    return render(request, 'qa/list.html', {'page': questions_p})
 
 
 def popular(request):
     questions = Question.objects.popular()
-    return render(request, 'qa/list.html', {'post_list': questions})
+    page = request.GET.get('page')
+    paginator = Paginator(questions, 10)
+    paginator.baseurl = '/?page='
+    questions_p = paginator.get_page(page)
+    return render(request, 'qa/list.html', {'page': questions_p})
 
 
 def question_details(request, id):
