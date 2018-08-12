@@ -1,0 +1,26 @@
+{% extends "qa/base.html" %}
+{% block title %}
+	{{ block.super }}
+{% endblock %}
+{% block content %}
+
+<!--<nav><ul class="pagination">-->
+	<!--{% for p in paginator.page_range %}-->
+		<!--{% if p.number == page.number %}-->
+		<!--<li class="active">-->
+		<!--{% else %}-->
+		<!--<li>-->
+		<!--{% endif %}-->
+		<!--<a href="{{ paginator.baseurl }}{{ p.number }}">-->
+		<!--{{ p.number }}</a>-->
+		<!--</li>-->
+	<!--{% endfor %}-->
+<!--</ul></nav>-->
+
+	{% for obj in post_list %}
+    <div class="question">
+        <a href="{{ obj.get_url }}">{{ obj.title }}</a>
+        <?----{{ obj.created_date|date:"d.m.Y" }} ---->
+    </div>
+	{% endfor %}
+{% endblock %}

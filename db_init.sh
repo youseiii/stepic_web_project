@@ -5,5 +5,5 @@ sudo mysql -uroot -e "GRANT ALL ON djbase.* TO 'django'@'localhost';"
 sudo mysql -uroot -e "GRANT USAGE ON *.* TO 'django'@'localhost';"
 sudo mysql -uroot -e "FLUSH PRIVILEGES;"
 
-sudo pip3 install mysqlclient
+sudo pip3 install --upgrade mysqlclient
 
