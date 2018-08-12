@@ -38,8 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ask',
-    'qa',
-    # 'django_faker'
+    'qa'
 ]
 
 MIDDLEWARE = [
