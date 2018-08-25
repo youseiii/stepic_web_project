@@ -1,0 +1,22 @@
+{% extends "qa/base.html" %}
+
+{% block title %}
+	Signup
+{% endblock %}
+
+{% block content %}
+	<h1>please sign up</h1>
+
+    <form method="post" action="/signup/">
+        <fieldset>
+		{% csrf_token %}
+		{{ form.as_p }}
+        </fieldset>
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+
+    <div>
+        <a href="/">Вернуться на главную страницу</a>
+    </div>
+
+{% endblock %}
